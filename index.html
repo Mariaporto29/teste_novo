@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,13 +15,7 @@
 }
 
 body{
-    background: linear-gradient(
-        135deg,
-        #ff4d4d,
-        #ffd633,
-        #4da6ff,
-        #33cc66
-    );
+    background: linear-gradient(135deg,#ff4d4d,#ffd633,#4da6ff,#33cc66);
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -63,21 +56,17 @@ button{
     font-size:20px;
     font-weight:bold;
     transition:.3s;
+    position:relative;
 }
 
 button:hover{
     transform:scale(1.03);
 }
 
-.uva{
-    background:#7b2cbf;
-    color:white;
-}
-
-.pirex{
-    background:#ff595e;
-    color:white;
-}
+/* botões */
+.uva{ background:#7b2cbf; color:white; }
+.pirex{ background:#ff595e; color:white; }
+.life{ background:#1982c4; color:white; }
 
 #resultado{
     display:none;
@@ -104,6 +93,11 @@ button:hover{
     margin:5px;
 }
 
+/* efeito do botão fugindo */
+.fugitivo{
+    position:relative;
+}
+
 </style>
 </head>
 
@@ -115,22 +109,22 @@ button:hover{
 
     <p>
         Gostaria de lhe convidar para um "date".
-        Então escolha um destino abaixo: 
+        Então escolha um destino abaixo:
     </p>
 
-    <button class="uva"
-    onclick="escolher('A Casa da Uva')">
+    <button class="uva" onclick="escolher('A Casa da Uva')">
         A Casa da Uva
     </button>
 
-    <button class="pirex"
-    onclick="escolher('Bar do Pirex')">
+    <button class="pirex" onclick="escolher('Bar do Pirex')">
         Bar do Pirex
     </button>
 
-    <button class="life"
-    onclick="escolher('life box')">
-        life box
+    <!-- NOVO -->
+    <button class="life fugitivo" id="btnLife"
+        onmouseover="fugir(this)"
+        onclick="escolher('Life Box')">
+        Life Box
     </button>
 
     <div id="resultado"></div>
@@ -144,19 +138,12 @@ function escolher(local){
 document.getElementById("resultado").style.display="block";
 
 document.getElementById("resultado").innerHTML=`
-
 <div class="rosto">😅</div>
-
 <div class="info">
-
 <h2>Date marcado!</h2>
-
 <p><strong>Data:</strong> 27 de Junho</p>
-
 <p><strong>Destino:</strong> ${local}</p>
-
 </div>
-
 `;
 
 window.scrollTo({
@@ -166,8 +153,17 @@ behavior:'smooth'
 
 }
 
+// efeito "o botão foge"
+function fugir(btn){
+
+const x = (Math.random() * 200) - 100;
+const y = (Math.random() * 60) - 30;
+
+btn.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+btn.style.transition = "0.2s";
+}
+
 </script>
 
 </body>
 </html>
-```
