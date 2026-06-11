@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Convite Especial</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#ffe6f0;
+    text-align:center;
+    padding:50px;
+}
+
+.container{
+    max-width:600px;
+    margin:auto;
+}
+
+button{
+    padding:15px 30px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.opcao{
+    background:#ff66a3;
+    color:white;
+}
+
+#resultado{
+    display:none;
+    margin-top:30px;
+    font-size:22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💌 Convite Especial 💌</h1>
+
+    <p>
+        Gostaria de convidar você para um date.
+        Escolha uma das opções abaixo:
+    </p>
+
+    <button class="opcao" onclick="escolher('Outback')">
+        🍔 Outback
+    </button>
+
+    <button class="opcao" onclick="escolher('Parque + Açaí')">
+        🌳 Parque + Açaí
+    </button>
+
+    <div id="resultado"></div>
+
+</div>
+
+<script>
+
+function escolher(local){
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("resultado").innerHTML =
+    `
+    <h2> Date Confirmado </h2>
+    <p>
+    Dia <b>27/06/2026</b><br>
+    Local: <b>${local}</b><br>
+    Horário: <b>19:00</b>
+    </p>
+    `;
+}
+
+</script>
+
+</body>
+</html>
